@@ -1,0 +1,452 @@
+<div class="position-relative">
+    <!-- <section class="section section-lg section-shaped pb-250"> -->
+
+    <section class="section section-shaped section-lg">
+
+        <div class="shape shape-style-1 bg-gradient-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div>
+            <div class="container-fluid" style="padding-left: 10%; padding-right: 5%;">
+
+                <div class="mb-3" style="text-align: center;">
+                    <large class="font-weight-bold;" style="color:white">Approval Form - Employee Education Assistance
+                    </large>
+                    <br>
+                    <small style="font-style: italic; color:white">To be filled by applicant</small>
+                </div>
+
+                <br>
+
+                <!-- header section -->
+
+                <form #educationFacilityApprovalForm="ngForm" (ngSubmit)="onSubmit()">
+
+                    <!-- row 1 -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="employeeName">Employee Name:</label>
+                                <input id="employeeName" name="employeeName" type="text" placeholder="Employee Name"
+                                    [(ngModel)]="model.employeeName"
+                                    class="form-control form-control-alternative custom-form-input-text" disabled />
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-2"> </div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="employeeId">Employee ID:</label>
+                                <input id="employeeId" style="float: right;" name="employeeId" type="text"
+                                    placeholder="Employee ID" [(ngModel)]="model.employeeId"
+                                    class="form-control form-control-alternative custom-form-input-text" disabled />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- row 2 -->
+                    <!-- <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="dateOfJoining">Date of Joining:</label>
+                                <input id="dateOfJoining" name="dateOfJoining" type="text" placeholder="Date of Joining"
+                                    [(ngModel)]="model.dateOfJoining"
+                                    class=" form-control form-control-alternative custom-form-input-text" disabled />
+                            </div>
+                        </div> 
+                    </div> -->
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="dateOfJoining">Date of Joining:</label>
+
+                                <div class="form-group" style="width: 60%;">
+                                    <div class="input-group" style="width:100%;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text custom-input-date-label"><i
+                                                    class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+
+                                        <input class="form-control datepicker custom-input-date"
+                                            placeholder="Select Date" name="dateOfJoining" id="dateOfJoining"
+                                            ngbDatepicker #dateOfJoining="ngbDatepicker"
+                                            (click)="dateOfJoining.toggle()" type="text"
+                                            [(ngModel)]="model.dateOfJoining" disabled
+                                            (select)="onDateSelection($event)" autocomplete="off" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-2"></div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="mobile">Mobile:</label>
+                                <input id="mobile" style="float: right;" name="mobile" type="number"
+                                    placeholder="Mobile" [(ngModel)]="model.mobile"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- row 3 -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="department">Department:</label>
+                                <input id="department" name="department" type="text" placeholder="Department"
+                                    [(ngModel)]="model.department"
+                                    class="form-control form-control-alternative custom-form-input-text" disabled />
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-2"></div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="designation">Designation:</label>
+                                <input id="designation" style="float: right;" name="designation" type="text"
+                                    placeholder="Designation" [(ngModel)]="model.designation"
+                                    class="form-control form-control-alternative custom-form-input-text" disabled />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- row 4 -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="nameOfInstitution">Name of Institution:</label>
+                                <input id="nameOfInstitution" name="nameOfInstitution" type="text"
+                                    placeholder="Name of Institution" [(ngModel)]="model.nameOfInstitution"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-2"></div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="programTitle">Program Title:</label>
+                                <input id="programTitle" name="programTitle" style="float: right;" type="text"
+                                    placeholder="Program Title" [(ngModel)]="model.programTitle"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- row 5 -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="estimatedDurationofCourse">Estimated Duration of
+                                    Course:</label>
+                                <input id="estimatedDurationofCourse" name="estimatedDurationofCourse" type="text"
+                                    placeholder="In Months" [(ngModel)]="model.estimatedDurationOfCourse"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-2"></div> -->
+
+                        <div class="col-lg-6">
+
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="dateOfJoiningOfCourse">Date of Joining of
+                                    Course:</label>
+
+                                <div class="form-group" style="width: 60%;">
+                                    <div class="input-group" style="width:100%;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text custom-input-date-label"><i
+                                                    class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+
+                                        <input class="form-control datepicker custom-input-date"
+                                            placeholder="Select Date" name="dateOfJoiningOfCourse"
+                                            id="dateOfJoiningOfCourse" ngbDatepicker
+                                            #dateOfJoiningOfCourse="ngbDatepicker"
+                                            [(ngModel)]="model.dateOfJoiningOfCourse"
+                                            (click)="dateOfJoiningOfCourse.toggle()" type="text"
+                                            (select)="onDateSelection($event)" autocomplete="off" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- row 6 -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="totalCost">Total Cost:</label>
+                                <input id="totalCost" name="totalCost" type="number" placeholder="Total Cost"
+                                    [(ngModel)]="model.totalCost"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-2"></div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="costOfProgram">Cost of Program:</label>
+                                <input id="costOfProgram" style="float: right;" name="costOfProgram" type="number"
+                                    placeholder="Cost of Program" [(ngModel)]="model.costOfProgram"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- row 7 -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline" style="border:none;">
+                                <label style="border:none;" class="custom-form-label" for="hrResponsible">HR
+                                    Responsible:</label>
+                                <div class="form-group" style="width:60%; border: none;">
+                                    <div class="input-group" style="width: 100%;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text custom-input-date-label"><i
+                                                    class="ni ni-zoom-split-in"></i></span>
+                                        </div>
+                                        <input class="form-control custom-input-date" name="hrResponsible"
+                                            [(ngModel)]="model.hrResponsible" id="hrResponsible" placeholder="Search"
+                                            type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-2"></div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="approvedAmountHR">Approved Amount (HR):</label>
+                                <input id="approvedAmountHR" style="float: right;" name="approvedAmountHR" type="number"
+                                    placeholder="Amount" [(ngModel)]="model.approvedAmount"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- details section -->
+
+
+                    <br><br>
+
+                    <h6>How does this program contribute to your current job performance or career goals?</h6>
+
+                    <textarea name="textareaProgramContribution" id="textareaProgramContribution" style="width: 95%;"
+                        class="custom-input-textarea" [(ngModel)]="model.howProgrmContributes" rows="4"></textarea>
+
+                    <br><br>
+
+                    <div class="form-group form-inline">
+                        <h6>Is this program part of your development plan?</h6>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <label class="custom-toggle">
+                            <input id="isPartOfDevelopmentPlan" type="checkbox" name="isPartOfDevelopmentPlan"
+                                [(ngModel)]="model.isPartOfDevelopmentPlan" />
+                            <span class="custom-toggle-slider rounded-circle"></span>
+                        </label>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <label class="custom-form-label" *ngIf="model.isPartOfDevelopmentPlan"
+                            for="isPartOfDevelopmentPlan" style="font-weight: bold;">Yes</label>
+                        <label class="custom-form-label" *ngIf="!model.isPartOfDevelopmentPlan"
+                            for="isPartOfDevelopmentPlan" style="font-weight: bold;">No</label>
+
+                    </div>
+
+                    <br><br>
+
+                    <h6><b>Fill the below details if availed this benefit in the past</b></h6>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="courseName">Course Name:</label>
+                                <input id="courseName" name="courseName" type="text" placeholder="Course Name"
+                                    [(ngModel)]="model.availedPastCourseName"
+                                    class="form-control form-control-alternative custom-form-input-text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="courseStartDate">Start Date:</label>
+
+                                <div class="form-group" style="width: 60%;">
+                                    <div class="input-group" style="width:100%;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text custom-input-date-label"><i
+                                                    class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+
+                                        <input class="form-control datepicker custom-input-date"
+                                            placeholder="Select Date" name="courseStartDate" id="courseStartDate"
+                                            ngbDatepicker #courseStartDate="ngbDatepicker"
+                                            [(ngModel)]="model.availedPastCouseStartDate"
+                                            (click)="courseStartDate.toggle()" type="text"
+                                            (select)="onDateSelection($event)" autocomplete="off" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-inline">
+                                <label class="custom-form-label" for="courseEndDate">End Date:</label>
+
+                                <div class="form-group" style="width: 60%;">
+                                    <div class="input-group" style="width:100%;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text custom-input-date-label"><i
+                                                    class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+
+                                        <input class="form-control datepicker custom-input-date"
+                                            placeholder="Select Date" name="courseEndDate" id="courseEndDate"
+                                            ngbDatepicker #courseEndDate="ngbDatepicker"
+                                            (click)="courseEndDate.toggle()" type="text"
+                                            [(ngModel)]="model.availedPastCouseEndDate"
+                                            (select)="onDateSelection($event)" autocomplete="off" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h6><b>Please attach related supporting documents (filled up application form of the
+                                    institute)
+                                    with your application.</b></h6>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <table class="table table-striped table-bordered" style="color: white; text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th>Action</th>
+                                        <th>Attached File</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let attachment of attachmentArray; let i = index;">
+                                        <td (click)="deleteRow(i)">
+                                            <i class="fa fa-trash fa-2x"></i>
+                                        </td>
+                                        <td>
+                                            <input *ngIf="attachment.attachmentId == 0" type="file" style="width: 100%;"
+                                                class="form-control form-control-alternative custom-form-input-text"
+                                                (change)="handleFileInput($event)">
+
+                                            <a *ngIf="attachment.attachmentId != 0"
+                                                class="form-control form-control-alternative custom-form-input-text"
+                                                style="width: 100%;"
+                                                href="http://localhost:8080/educationFacilityApproval/getFile/{{attachment.attachmentId}}">{{attachment.attachmentName}}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td (click)="addRow(i)">
+                                            <i class="fa fa-plus fa-2x"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h6><b>I hereby declare that I will be liable to return the claimed amount to ST
+                                    Microelectronics in case I decide to part ways with the company (resignation) within
+                                    one
+                                    year from the date of completion of the Course/Certification.</b></h6>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input class="custom-control-input" id="formAgreeCheck" type="checkbox" name="isAgree"
+                            style="border: 3px solid white;" [(ngModel)]="model.isAgree">
+                        <label class="custom-control-label" for="formAgreeCheck" style="color:white;">
+                            <span>Agree</span>
+                        </label>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row" style="text-align: center;">
+
+                        <div class="col-lg-4">
+                            <button class="btn btn-1 btn-info custom-button-submit" type="button">Save as Draft</button>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <button class="btn btn-1 btn-primary custom-button-submit" type="submit">Submit</button>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <button class="btn btn-1 btn-neutral custom-button-submit" (click)="checkFiles()" type="button">Return</button>
+                        </div>
+
+                    </div>
+
+                    <br><br>
+
+                    <!-- <div>
+                        <p style="color: white;">{{ getCurrentModel() }}</p>
+                    </div> -->
+
+                    <div class="backdrop" [ngStyle]="{'display': showBackdrop == true ? 'block' : 'none'}"></div>
+
+                    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':showModal}">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content ">
+                                <div class="modal-body">
+                                    <h3 style="text-align: center; color: black;">{{ modalMessage }}</h3>
+                                </div>
+                                <button type="button" class="btn btn-primary" (click)="onCloseHandler()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
